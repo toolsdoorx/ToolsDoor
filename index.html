@@ -6,443 +6,649 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-        .animate-gradient { background-size: 200% 200%; animation: gradient 8s ease infinite; }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+      body { font-family: 'Inter', sans-serif; }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+      .animate-gradient { background-size: 200% 200%; animation: gradient 8s ease infinite; }
+      @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+      }
+      html.dark body { background-color: #0f172a; color: #f8fafc; }
+      html.dark .bg-white { background-color: #1e293b !important; border-color: #334155 !important; }
+      html.dark .bg-gray-50 { background-color: #0f172a !important; }
+      html.dark .text-gray-900 { color: #f8fafc !important; }
+      html.dark .text-gray-600 { color: #cbd5e1 !important; }
+      html.dark .text-gray-500 { color: #94a3b8 !important; }
+      html.dark .text-gray-400 { color: #64748b !important; }
+      html.dark .text-indigo-600 { color: #818cf8 !important; }
+      html.dark .border-gray-100 { border-color: #1e293b !important; }
+      html.dark .border-gray-200 { border-color: #334155 !important; }
+      html.dark header { background-color: rgba(30, 41, 59, 0.8) !important; border-bottom-color: #334155 !important; }
+      html.dark .bg-gray-900 { background-color: #f8fafc !important; color: #0f172a !important; }
+      html.dark button[role="switch"] span { background-color: #ffffff !important; }
+      html.dark .bg-indigo-50\/80 { background-color: rgba(79, 70, 229, 0.2) !important; color: #818cf8 !important; ring-color: rgba(79, 70, 229, 0.4) !important; }
+      html.dark .bg-indigo-50\/10 { background-color: rgba(79, 70, 229, 0.1) !important; }
+      html.dark .bg-orange-50, html.dark .bg-red-50, html.dark .bg-purple-50, html.dark .bg-blue-50, html.dark .bg-green-50, html.dark .bg-teal-50, html.dark .bg-pink-50, html.dark .bg-yellow-50, html.dark .bg-emerald-50, html.dark .bg-rose-50, html.dark .bg-indigo-50 { background-color: rgba(255,255,255,0.05) !important; }
+      html.dark .bg-blue-50\/50 { background-color: rgba(59, 130, 246, 0.1) !important; border-color: rgba(59, 130, 246, 0.2) !important; }
+      html.dark input, html.dark textarea { color: #f8fafc !important; }
+      html.dark input::placeholder, html.dark textarea::placeholder { color: #64748b !important; }
+      html.dark nav.md\:hidden { background-color: rgba(30, 41, 59, 0.9) !important; border-top-color: #334155 !important; }
+      html.dark .hover\:bg-gray-50:hover { background-color: #334155 !important; }
+      html.dark .hover\:text-gray-900:hover { color: #ffffff !important; }
+      html.dark section > div.absolute.-z-10 { background-image: radial-gradient(ellipse at top, rgba(30,58,138,0.2), #0f172a, #0f172a) !important; }
+      html.dark .bg-gray-50\/50 { background-color: rgba(30, 41, 59, 0.5) !important; }
     </style>
-</head>
-<body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 flex flex-col min-h-screen mb-16 md:mb-0">
-
+  </head>
+  <body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 flex flex-col min-h-screen mb-16 md:mb-0">
     <!-- Top Header -->
     <header class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2" onclick="showHome(event)">
-                <div class="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white">
-                    <iconify-icon icon="solar:door-open-linear" class="text-xl" stroke-width="1.5"></iconify-icon>
-                    <iconify-icon icon="solar:settings-linear" class="absolute bottom-1 right-1 text-xs scale-75 bg-gray-900 rounded-full" stroke-width="1.5"></iconify-icon>
-                </div>
-                <span class="text-xl font-semibold tracking-tighter text-gray-900">ToolsDoor</span>
-            </a>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2" onclick="showHome(event)">
+          <div class="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white">
+            <iconify-icon icon="solar:door-open-linear" class="text-xl" stroke-width="1.5"></iconify-icon>
+            <iconify-icon icon="solar:settings-linear" class="absolute bottom-1 right-1 text-xs scale-75 bg-gray-900 rounded-full" stroke-width="1.5"></iconify-icon>
+          </div>
+          <span class="text-xl font-semibold tracking-tighter text-gray-900">
+            ToolsDoor
+          </span>
+        </a>
 
-            <div class="hidden md:flex flex-1 max-w-md mx-8">
-                <div class="relative flex items-center w-full h-10 rounded-full focus-within:ring-2 focus-within:ring-indigo-500 bg-gray-50 border border-gray-200 overflow-hidden transition-all">
-                    <iconify-icon icon="solar:magnifer-linear" class="ml-3 text-gray-400 text-lg" stroke-width="1.5"></iconify-icon>
-                    <input type="text" class="w-full h-full bg-transparent px-3 text-sm text-gray-900 placeholder-gray-400 outline-none" placeholder="Search 500+ tools...">
-                    <div class="mr-2 hidden lg:flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white border border-gray-200 text-xs text-gray-400 font-medium">
-                        <iconify-icon icon="solar:command-linear"></iconify-icon> K
-                    </div>
-                </div>
+        <div class="hidden md:flex flex-1 max-w-md mx-8">
+          <div class="relative flex items-center w-full h-10 rounded-full focus-within:ring-2 focus-within:ring-indigo-500 bg-gray-50 border border-gray-200 overflow-hidden transition-all">
+            <iconify-icon icon="solar:magnifer-linear" class="ml-3 text-gray-400 text-lg" stroke-width="1.5"></iconify-icon>
+            <input type="text" class="w-full h-full bg-transparent px-3 text-sm text-gray-900 placeholder-gray-400 outline-none" placeholder="Search 500+ tools...">
+            <div class="mr-2 hidden lg:flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-white border border-gray-200 text-xs text-gray-400 font-medium">
+              <iconify-icon icon="solar:command-linear"></iconify-icon>
+              K
             </div>
-
-            <div class="flex items-center gap-4">
-                <button class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" role="switch" aria-checked="false">
-                    <span class="inline-block h-4 w-4 translate-x-1 rounded-full bg-white transition-transform shadow-sm"></span>
-                    <iconify-icon icon="solar:moon-linear" class="absolute right-1.5 text-xs text-gray-400" stroke-width="1.5"></iconify-icon>
-                </button>
-            </div>
+          </div>
         </div>
+
+        <div class="flex items-center gap-4">
+          <button class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" role="switch" aria-checked="false" onclick="toggleTheme()">
+            <span class="inline-block h-4 w-4 translate-x-1 rounded-full bg-white transition-transform shadow-sm"></span>
+            <iconify-icon icon="solar:moon-linear" class="absolute right-1.5 text-xs text-gray-400" stroke-width="1.5"></iconify-icon>
+          </button>
+        </div>
+      </div>
     </header>
 
     <!-- MAIN HOME VIEW -->
     <main id="home-view" class="flex-1 w-full">
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 text-center border-b border-gray-100">
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/50 via-white to-gray-50"></div>
-            
-            <div class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50/80 px-3 py-1 text-sm font-medium text-indigo-600 ring-1 ring-inset ring-indigo-500/20 mb-6 backdrop-blur-sm">
-                <iconify-icon icon="solar:verified-check-linear" stroke-width="1.5"></iconify-icon>
-                500+ Free Tools
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 text-center border-b border-gray-100">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/50 via-white to-gray-50"></div>
+
+        <div class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50/80 px-3 py-1 text-sm font-medium text-indigo-600 ring-1 ring-inset ring-indigo-500/20 mb-6 backdrop-blur-sm">
+          <iconify-icon icon="solar:verified-check-linear" stroke-width="1.5"></iconify-icon>
+          500+ Free Tools
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-4 px-4">
+          Your Door to
+          <br class="md:hidden">
+          Instant Utility.
+        </h1>
+        <p class="text-lg text-gray-500 max-w-xl mx-auto mb-8 px-4 font-medium">
+          Access over 500+ free online tools instantly. Format code, edit PDFs,
+          process images, and more—all directly in your browser.
+        </p>
+
+        <div class="max-w-2xl mx-auto px-4 sm:px-6">
+          <div class="relative flex items-center w-full h-14 sm:h-16 rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-transparent bg-white shadow-sm border border-gray-200 overflow-hidden transition-all group">
+            <iconify-icon icon="solar:magnifer-linear" class="ml-4 sm:ml-5 text-gray-400 text-xl group-focus-within:text-indigo-500 transition-colors" stroke-width="1.5"></iconify-icon>
+            <input type="text" class="w-full h-full bg-transparent px-4 text-base sm:text-lg text-gray-900 placeholder-gray-400 outline-none" placeholder="What do you need to do? (e.g. 'Word Counter')">
+            <button class="mr-2 sm:mr-3 rounded-xl bg-gray-900 px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white transition-colors hover:bg-gray-800">
+              Search
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tool Categories & Grid -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <!-- Filter Categories -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+          <button class="whitespace-nowrap rounded-xl bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-transform active:scale-95">
+            All Tools
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:document-linear"></iconify-icon>
+            PDF
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:text-square-linear"></iconify-icon>
+            Text
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:gallery-linear"></iconify-icon>
+            Image
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:code-square-linear"></iconify-icon>
+            Developer
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:wad-of-money-linear"></iconify-icon>
+            Finance
+          </button>
+          <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
+            <iconify-icon icon="solar:lock-password-linear"></iconify-icon>
+            Password
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold tracking-tight text-gray-900">
+            Popular Tools
+          </h2>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Card 1 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden" onclick="showToolPage(event)">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-orange-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:text-square-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
-            
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-4 px-4">
-                Your Door to <br class="md:hidden"> Instant Utility.
-            </h1>
-            <p class="text-lg text-gray-500 max-w-xl mx-auto mb-8 px-4 font-medium">
-                Access over 500+ free online tools instantly. Format code, edit PDFs, process images, and more—all directly in your browser.
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Word Counter
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Instantly count words, characters, and sentences in your text
+              block.
             </p>
-            
-            <div class="max-w-2xl mx-auto px-4 sm:px-6">
-                <div class="relative flex items-center w-full h-14 sm:h-16 rounded-2xl focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-transparent bg-white shadow-sm border border-gray-200 overflow-hidden transition-all group">
-                    <iconify-icon icon="solar:magnifer-linear" class="ml-4 sm:ml-5 text-gray-400 text-xl group-focus-within:text-indigo-500 transition-colors" stroke-width="1.5"></iconify-icon>
-                    <input type="text" class="w-full h-full bg-transparent px-4 text-base sm:text-lg text-gray-900 placeholder-gray-400 outline-none" placeholder="What do you need to do? (e.g. 'Word Counter')">
-                    <button class="mr-2 sm:mr-3 rounded-xl bg-gray-900 px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base font-medium text-white transition-colors hover:bg-gray-800">
-                        Search
-                    </button>
-                </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:document-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
-        </section>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Compress PDF
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Reduce the file size of your PDF documents without losing visual
+              quality.
+            </p>
+          </a>
 
-        <!-- Tool Categories & Grid -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-            
-            <!-- Filter Categories -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
-                <button class="whitespace-nowrap rounded-xl bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-transform active:scale-95">All Tools</button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:document-linear"></iconify-icon> PDF
-                </button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:text-square-linear"></iconify-icon> Text
-                </button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:gallery-linear"></iconify-icon> Image
-                </button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:code-square-linear"></iconify-icon> Developer
-                </button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:wad-of-money-linear"></iconify-icon> Finance
-                </button>
-                <button class="whitespace-nowrap rounded-xl bg-white border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-                    <iconify-icon icon="solar:lock-password-linear"></iconify-icon> Password
-                </button>
+          <!-- Card 3 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-purple-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:gallery-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Remove Background
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Automatically extract subjects and remove backgrounds from images.
+            </p>
+          </a>
 
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-semibold tracking-tight text-gray-900">Popular Tools</h2>
+          <!-- Card 4 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:code-square-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              JSON Formatter
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Format, validate, and beautify your JSON data with color syntax.
+            </p>
+          </a>
 
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                
-                <!-- Card 1 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden" onclick="showToolPage(event)">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-orange-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:text-square-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Word Counter</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Instantly count words, characters, and sentences in your text block.</p>
-                </a>
-
-                <!-- Card 2 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:document-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Compress PDF</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Reduce the file size of your PDF documents without losing visual quality.</p>
-                </a>
-
-                <!-- Card 3 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-purple-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:gallery-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Remove Background</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Automatically extract subjects and remove backgrounds from images.</p>
-                </a>
-
-                <!-- Card 4 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:code-square-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">JSON Formatter</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Format, validate, and beautify your JSON data with color syntax.</p>
-                </a>
-
-                <!-- Card 5 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:lock-password-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Password Generator</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Create strong, secure passwords with custom length and character rules.</p>
-                </a>
-
-                <!-- Card 6 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:calculator-minimalistic-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">EMI Calculator</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Calculate monthly loan EMIs, interest details, and amortization schedules.</p>
-                </a>
-
-                <!-- Card 7 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-50 text-pink-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:pallete-2-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Color Palette Generator</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Extract primary, secondary, and accent colors from any uploaded image.</p>
-                </a>
-
-                <!-- Card 8 -->
-                <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-50 text-yellow-600 group-hover:scale-110 transition-transform duration-300">
-                        <iconify-icon icon="solar:calendar-date-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
-                    </div>
-                    <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">Age Calculator</h3>
-                    <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">Find precise age in years, months, weeks, days, and seconds easily.</p>
-                </a>
+          <!-- Card 5 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:lock-password-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Password Generator
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Create strong, secure passwords with custom length and character
+              rules.
+            </p>
+          </a>
 
-            <div class="mt-10 flex justify-center">
-                <button class="rounded-xl bg-white border border-gray-200 px-6 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95">
-                    View All 500+ Tools
-                </button>
+          <!-- Card 6 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:calculator-minimalistic-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
             </div>
-        </section>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              EMI Calculator
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Calculate monthly loan EMIs, interest details, and amortization
+              schedules.
+            </p>
+          </a>
+
+          <!-- Card 7 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-50 text-pink-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:pallete-2-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
+            </div>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Color Palette Generator
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Extract primary, secondary, and accent colors from any uploaded
+              image.
+            </p>
+          </a>
+
+          <!-- Card 8 -->
+          <a href="#" class="group relative flex flex-col items-start p-4 sm:p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 hover:bg-indigo-50/10 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-50 text-yellow-600 group-hover:scale-110 transition-transform duration-300">
+              <iconify-icon icon="solar:calendar-date-linear" class="text-2xl" stroke-width="1.5"></iconify-icon>
+            </div>
+            <h3 class="mt-4 text-sm sm:text-base font-semibold tracking-tight text-gray-900">
+              Age Calculator
+            </h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-gray-500 line-clamp-2 leading-relaxed">
+              Find precise age in years, months, weeks, days, and seconds
+              easily.
+            </p>
+          </a>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+          <button class="rounded-xl bg-white border border-gray-200 px-6 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all shadow-sm active:scale-95">
+            View All 500+ Tools
+          </button>
+        </div>
+      </section>
     </main>
 
     <!-- INDIVIDUAL TOOL VIEW (Hidden by default, simulates Next.js routing) -->
     <main id="tool-view" class="hidden flex-1 w-full bg-gray-50 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-            
-            <!-- Breadcrumbs -->
-            <nav class="flex text-xs sm:text-sm text-gray-500 mb-6 sm:mb-8 items-center gap-2">
-                <a href="#" class="hover:text-gray-900 transition-colors flex items-center gap-1" onclick="showHome(event)">
-                    <iconify-icon icon="solar:home-smile-linear"></iconify-icon> Home
-                </a>
-                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-300"></iconify-icon>
-                <a href="#" class="hover:text-gray-900 transition-colors">Text Tools</a>
-                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-300"></iconify-icon>
-                <span class="text-gray-900 font-medium truncate">Word Counter</span>
-            </nav>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex text-xs sm:text-sm text-gray-500 mb-6 sm:mb-8 items-center gap-2">
+          <a href="#" class="hover:text-gray-900 transition-colors flex items-center gap-1" onclick="showHome(event)">
+            <iconify-icon icon="solar:home-smile-linear"></iconify-icon>
+            Home
+          </a>
+          <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-300"></iconify-icon>
+          <a href="#" class="hover:text-gray-900 transition-colors">
+            Text Tools
+          </a>
+          <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-300"></iconify-icon>
+          <span class="text-gray-900 font-medium truncate">Word Counter</span>
+        </nav>
 
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Left Content: Tool App -->
-                <div class="flex-1 min-w-0 space-y-6">
-                    
-                    <!-- Tool Header -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3 sm:gap-4">
-                            <button class="h-10 w-10 flex shrink-0 items-center justify-center rounded-full bg-white border border-gray-200 hover:bg-gray-50 hover:text-indigo-600 transition-colors shadow-sm" onclick="showHome(event)" aria-label="Go back">
-                                <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
-                            </button>
-                            <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 truncate">Word Counter</h1>
-                        </div>
-                        <button class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-500 hover:bg-white hover:text-gray-900 hover:shadow-sm border border-transparent hover:border-gray-200 transition-all">
-                            <iconify-icon icon="solar:share-linear" class="text-lg"></iconify-icon> Share
-                        </button>
-                    </div>
-
-                    <!-- Tool UI (Word Counter Example) -->
-                    <div class="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="p-2 sm:p-3 relative flex-1">
-                            <textarea id="word-input" class="w-full min-h-[250px] sm:min-h-[300px] p-4 text-base text-gray-900 placeholder-gray-400 bg-transparent resize-y outline-none focus:ring-0 leading-relaxed" placeholder="Type or paste your text here to instantly count words, characters, sentences, and paragraphs..."></textarea>
-                            <button id="clear-btn" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors" title="Clear Text">
-                                <iconify-icon icon="solar:trash-bin-trash-linear" class="text-lg"></iconify-icon>
-                            </button>
-                        </div>
-                        
-                        <!-- Tool Output Stats -->
-                        <div class="flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5 border-t border-gray-100 bg-gray-50/50">
-                            <div class="flex flex-wrap items-center gap-4 sm:gap-8">
-                                <div class="bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
-                                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-indigo-600" id="stat-words">0</span>
-                                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">Words</span>
-                                </div>
-                                <div class="bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
-                                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900" id="stat-chars">0</span>
-                                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">Characters</span>
-                                </div>
-                                <div class="hidden sm:block bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
-                                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900" id="stat-sentences">0</span>
-                                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">Sentences</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2 w-full sm:w-auto">
-                                <button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900 rounded-xl hover:bg-gray-800 transition-colors shadow-sm active:scale-95">
-                                    <iconify-icon icon="solar:copy-linear" class="text-lg"></iconify-icon> Copy
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SEO / Info Box -->
-                    <div class="bg-blue-50/50 border border-blue-100 rounded-2xl p-5 sm:p-6 mt-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <iconify-icon icon="solar:info-circle-linear" class="text-blue-600 text-xl"></iconify-icon>
-                            <h2 class="text-lg font-semibold tracking-tight text-gray-900">About Word Counter</h2>
-                        </div>
-                        <div class="prose prose-sm text-gray-600 leading-relaxed max-w-none">
-                            <p>This free online word counter instantly counts words, characters, sentences, and paragraphs in your text. Perfect for writers, students, SEO professionals, and content creators who need to meet specific length requirements for essays, articles, or social media posts.</p>
-                            <p class="mt-2">All processing happens directly in your browser. No data is sent to our servers, ensuring your text remains 100% private and secure.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Sidebar: Related Tools -->
-                <aside class="w-full lg:w-80 space-y-6">
-                    <h3 class="text-lg font-semibold tracking-tight text-gray-900">Related Tools</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-                        
-                        <!-- Small Related Card -->
-                        <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
-                                <iconify-icon icon="solar:text-square-linear" class="text-lg"></iconify-icon>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">Character Counter</h4>
-                                <p class="text-[11px] text-gray-500 truncate">Count chars with/without spaces</p>
-                            </div>
-                        </a>
-
-                        <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                                <iconify-icon icon="solar:text-field-focus-linear" class="text-lg"></iconify-icon>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">Case Converter</h4>
-                                <p class="text-[11px] text-gray-500 truncate">UPPER, lower, Title Case</p>
-                            </div>
-                        </a>
-
-                        <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-                                <iconify-icon icon="solar:list-check-linear" class="text-lg"></iconify-icon>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">Remove Extra Spaces</h4>
-                                <p class="text-[11px] text-gray-500 truncate">Clean up messy text formatting</p>
-                            </div>
-                        </a>
-
-                        <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                                <iconify-icon icon="solar:sort-by-alphabet-linear" class="text-lg"></iconify-icon>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">Sort Lines A-Z</h4>
-                                <p class="text-[11px] text-gray-500 truncate">Alphabetize your text lists</p>
-                            </div>
-                        </a>
-                    </div>
-                </aside>
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Left Content: Tool App -->
+          <div class="flex-1 min-w-0 space-y-6">
+            <!-- Tool Header -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3 sm:gap-4">
+                <button class="h-10 w-10 flex shrink-0 items-center justify-center rounded-full bg-white border border-gray-200 hover:bg-gray-50 hover:text-indigo-600 transition-colors shadow-sm" onclick="showHome(event)" aria-label="Go back">
+                  <iconify-icon icon="solar:arrow-left-linear" class="text-xl"></iconify-icon>
+                </button>
+                <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 truncate">
+                  Word Counter
+                </h1>
+              </div>
+              <button class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-500 hover:bg-white hover:text-gray-900 hover:shadow-sm border border-transparent hover:border-gray-200 transition-all">
+                <iconify-icon icon="solar:share-linear" class="text-lg"></iconify-icon>
+                Share
+              </button>
             </div>
+
+            <!-- Tool UI (Word Counter Example) -->
+            <div class="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
+              <div class="p-2 sm:p-3 relative flex-1">
+                <textarea id="word-input" class="w-full min-h-[250px] sm:min-h-[300px] p-4 text-base text-gray-900 placeholder-gray-400 bg-transparent resize-y outline-none focus:ring-0 leading-relaxed" placeholder="Type or paste your text here to instantly count words, characters, sentences, and paragraphs..."></textarea>
+                <button id="clear-btn" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors" title="Clear Text">
+                  <iconify-icon icon="solar:trash-bin-trash-linear" class="text-lg"></iconify-icon>
+                </button>
+              </div>
+
+              <!-- Tool Output Stats -->
+              <div class="flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5 border-t border-gray-100 bg-gray-50/50">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-8">
+                  <div class="bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
+                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-indigo-600" id="stat-words">
+                      0
+                    </span>
+                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">
+                      Words
+                    </span>
+                  </div>
+                  <div class="bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
+                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900" id="stat-chars">
+                      0
+                    </span>
+                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">
+                      Characters
+                    </span>
+                  </div>
+                  <div class="hidden sm:block bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm min-w-[100px]">
+                    <span class="block text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900" id="stat-sentences">
+                      0
+                    </span>
+                    <span class="block text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-medium mt-0.5">
+                      Sentences
+                    </span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                  <button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gray-900 rounded-xl hover:bg-gray-800 transition-colors shadow-sm active:scale-95">
+                    <iconify-icon icon="solar:copy-linear" class="text-lg"></iconify-icon>
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEO / Info Box -->
+            <div class="bg-blue-50/50 border border-blue-100 rounded-2xl p-5 sm:p-6 mt-6">
+              <div class="flex items-center gap-2 mb-3">
+                <iconify-icon icon="solar:info-circle-linear" class="text-blue-600 text-xl"></iconify-icon>
+                <h2 class="text-lg font-semibold tracking-tight text-gray-900">
+                  About Word Counter
+                </h2>
+              </div>
+              <div class="prose prose-sm text-gray-600 leading-relaxed max-w-none">
+                <p>
+                  This free online word counter instantly counts words,
+                  characters, sentences, and paragraphs in your text. Perfect
+                  for writers, students, SEO professionals, and content creators
+                  who need to meet specific length requirements for essays,
+                  articles, or social media posts.
+                </p>
+                <p class="mt-2">
+                  All processing happens directly in your browser. No data is
+                  sent to our servers, ensuring your text remains 100% private
+                  and secure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar: Related Tools -->
+          <aside class="w-full lg:w-80 space-y-6">
+            <h3 class="text-lg font-semibold tracking-tight text-gray-900">
+              Related Tools
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+              <!-- Small Related Card -->
+              <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
+                  <iconify-icon icon="solar:text-square-linear" class="text-lg"></iconify-icon>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">
+                    Character Counter
+                  </h4>
+                  <p class="text-[11px] text-gray-500 truncate">
+                    Count chars with/without spaces
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                  <iconify-icon icon="solar:text-field-focus-linear" class="text-lg"></iconify-icon>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">
+                    Case Converter
+                  </h4>
+                  <p class="text-[11px] text-gray-500 truncate">
+                    UPPER, lower, Title Case
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                  <iconify-icon icon="solar:list-check-linear" class="text-lg"></iconify-icon>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">
+                    Remove Extra Spaces
+                  </h4>
+                  <p class="text-[11px] text-gray-500 truncate">
+                    Clean up messy text formatting
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:border-indigo-200 hover:shadow-sm transition-all active:scale-95">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
+                  <iconify-icon icon="solar:sort-by-alphabet-linear" class="text-lg"></iconify-icon>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="text-sm font-semibold tracking-tight text-gray-900 truncate">
+                    Sort Lines A-Z
+                  </h4>
+                  <p class="text-[11px] text-gray-500 truncate">
+                    Alphabetize your text lists
+                  </p>
+                </div>
+              </a>
+            </div>
+          </aside>
         </div>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="mt-auto border-t border-gray-200 bg-white pb-16 md:pb-0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-                <div class="col-span-2 lg:col-span-2">
-                    <a href="#" class="flex items-center gap-2 mb-4">
-                        <div class="relative flex h-7 w-7 items-center justify-center rounded-lg bg-gray-900 text-white">
-                            <iconify-icon icon="solar:door-open-linear" class="text-lg"></iconify-icon>
-                        </div>
-                        <span class="text-lg font-semibold tracking-tighter text-gray-900">ToolsDoor</span>
-                    </a>
-                    <p class="text-sm text-gray-500 mb-6 max-w-xs leading-relaxed">Your Door to 500+ Free Online Tools. Built for speed, privacy, and simplicity.</p>
-                    <div class="flex items-center gap-4 text-gray-400">
-                        <a href="#" class="hover:text-gray-900 transition-colors"><iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon></a>
-                        <a href="#" class="hover:text-gray-900 transition-colors"><iconify-icon icon="solar:global-linear" class="text-xl"></iconify-icon></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">Categories</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">PDF Tools</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">Image Tools</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">Text Tools</a></li>
-                        <li><a href="#" class="hover:text-indigo-600 transition-colors">Developer Tools</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">Legal</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">Cookie Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">Company</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-gray-900 transition-colors">Submit a Tool</a></li>
-                    </ul>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div class="col-span-2 lg:col-span-2">
+            <a href="#" class="flex items-center gap-2 mb-4">
+              <div class="relative flex h-7 w-7 items-center justify-center rounded-lg bg-gray-900 text-white">
+                <iconify-icon icon="solar:door-open-linear" class="text-lg"></iconify-icon>
+              </div>
+              <span class="text-lg font-semibold tracking-tighter text-gray-900">
+                ToolsDoor
+              </span>
+            </a>
+            <p class="text-sm text-gray-500 mb-6 max-w-xs leading-relaxed">
+              Your Door to 500+ Free Online Tools. Built for speed, privacy, and
+              simplicity.
+            </p>
+            <div class="flex items-center gap-4 text-gray-400">
+              <a href="#" class="hover:text-gray-900 transition-colors">
+                <iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon>
+              </a>
+              <a href="#" class="hover:text-gray-900 transition-colors">
+                <iconify-icon icon="solar:global-linear" class="text-xl"></iconify-icon>
+              </a>
             </div>
-            <div class="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-gray-400">© 2024 ToolsDoor. All rights reserved.</p>
-                <button onclick="window.scrollTo(0,0)" class="text-xs font-medium text-gray-500 hover:text-gray-900 flex items-center gap-1 transition-colors">
-                    Back to top <iconify-icon icon="solar:arrow-up-linear" class="text-base"></iconify-icon>
-                </button>
-            </div>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">
+              Categories
+            </h4>
+            <ul class="space-y-3 text-sm text-gray-500">
+              <li>
+                <a href="#" class="hover:text-indigo-600 transition-colors">
+                  PDF Tools
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-indigo-600 transition-colors">
+                  Image Tools
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-indigo-600 transition-colors">
+                  Text Tools
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-indigo-600 transition-colors">
+                  Developer Tools
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">
+              Legal
+            </h4>
+            <ul class="space-y-3 text-sm text-gray-500">
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  Cookie Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold tracking-tight text-gray-900 mb-4">
+              Company
+            </h4>
+            <ul class="space-y-3 text-sm text-gray-500">
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-gray-900 transition-colors">
+                  Submit a Tool
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-gray-400">
+            © 2024 ToolsDoor. All rights reserved.
+          </p>
+          <button onclick="window.scrollTo(0,0)" class="text-xs font-medium text-gray-500 hover:text-gray-900 flex items-center gap-1 transition-colors">
+            Back to top
+            <iconify-icon icon="solar:arrow-up-linear" class="text-base"></iconify-icon>
+          </button>
+        </div>
+      </div>
     </footer>
 
     <!-- Mobile Bottom Navigation -->
     <nav class="md:hidden fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t border-gray-200 pb-safe z-50">
-        <div class="flex justify-around items-center h-16 px-2">
-            <a href="#" class="flex flex-col items-center gap-1 text-indigo-600 p-2" onclick="showHome(event)">
-                <iconify-icon icon="solar:home-smile-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
-                <span class="text-[10px] font-medium tracking-tight">Home</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
-                <iconify-icon icon="solar:magnifer-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
-                <span class="text-[10px] font-medium tracking-tight">Search</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
-                <iconify-icon icon="solar:widget-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
-                <span class="text-[10px] font-medium tracking-tight">Categories</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
-                <iconify-icon icon="solar:heart-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
-                <span class="text-[10px] font-medium tracking-tight">Saved</span>
-            </a>
-        </div>
+      <div class="flex justify-around items-center h-16 px-2">
+        <a href="#" class="flex flex-col items-center gap-1 text-indigo-600 p-2" onclick="showHome(event)">
+          <iconify-icon icon="solar:home-smile-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
+          <span class="text-[10px] font-medium tracking-tight">Home</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
+          <iconify-icon icon="solar:magnifer-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
+          <span class="text-[10px] font-medium tracking-tight">Search</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
+          <iconify-icon icon="solar:widget-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
+          <span class="text-[10px] font-medium tracking-tight">Categories</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-900 transition-colors p-2">
+          <iconify-icon icon="solar:heart-linear" class="text-[22px]" stroke-width="1.5"></iconify-icon>
+          <span class="text-[10px] font-medium tracking-tight">Saved</span>
+        </a>
+      </div>
     </nav>
 
     <!-- UI Scripts for Simulation -->
     <script>
-        // SPA View Toggling
-        function showToolPage(e) {
-            e.preventDefault();
-            document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('tool-view').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function showHome(e) {
-            e.preventDefault();
-            document.getElementById('tool-view').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      // SPA View Toggling
+      function showToolPage(e) {
+          e.preventDefault();
+          document.getElementById('home-view').classList.add('hidden');
+          document.getElementById('tool-view').classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
-        // Functional Word Counter Logic
-        const wordInput = document.getElementById('word-input');
-        const statWords = document.getElementById('stat-words');
-        const statChars = document.getElementById('stat-chars');
-        const statSentences = document.getElementById('stat-sentences');
-        const clearBtn = document.getElementById('clear-btn');
+      function showHome(e) {
+          e.preventDefault();
+          document.getElementById('tool-view').classList.add('hidden');
+          document.getElementById('home-view').classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
-        if(wordInput) {
-            wordInput.addEventListener('input', function(e) {
-                const text = e.target.value;
-                
-                // Characters
-                statChars.textContent = text.length;
-                
-                // Words
-                const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-                statWords.textContent = words;
-                
-                // Sentences
-                const sentences = text.trim() ? text.split(/[.!?]+/).filter(Boolean).length : 0;
-                statSentences.textContent = sentences;
-            });
+      // Functional Word Counter Logic
+      const wordInput = document.getElementById('word-input');
+      const statWords = document.getElementById('stat-words');
+      const statChars = document.getElementById('stat-chars');
+      const statSentences = document.getElementById('stat-sentences');
+      const clearBtn = document.getElementById('clear-btn');
 
-            clearBtn.addEventListener('click', function() {
-                wordInput.value = '';
-                wordInput.dispatchEvent(new Event('input'));
-                wordInput.focus();
-            });
-        }
+      if(wordInput) {
+          wordInput.addEventListener('input', function(e) {
+              const text = e.target.value;
+
+              // Characters
+              statChars.textContent = text.length;
+
+              // Words
+              const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+              statWords.textContent = words;
+
+              // Sentences
+              const sentences = text.trim() ? text.split(/[.!?]+/).filter(Boolean).length : 0;
+              statSentences.textContent = sentences;
+          });
+
+          clearBtn.addEventListener('click', function() {
+              wordInput.value = '';
+              wordInput.dispatchEvent(new Event('input'));
+              wordInput.focus();
+          });
+      }
     </script>
 
+    <script>
+      function toggleTheme() {
+          const isDark = document.documentElement.classList.toggle('dark');
+          const btn = document.querySelector('button[role="switch"]');
+          const knob = btn.querySelector('span');
+          const icon = btn.querySelector('iconify-icon');
+
+          if (isDark) {
+              btn.setAttribute('aria-checked', 'true');
+              btn.classList.replace('bg-gray-200', 'bg-indigo-600');
+              btn.classList.replace('hover:bg-gray-300', 'hover:bg-indigo-700');
+              knob.classList.replace('translate-x-1', 'translate-x-6');
+              icon.setAttribute('icon', 'solar:sun-linear');
+              icon.classList.replace('right-1.5', 'left-1.5');
+              icon.classList.replace('text-gray-400', 'text-white');
+          } else {
+              btn.setAttribute('aria-checked', 'false');
+              btn.classList.replace('bg-indigo-600', 'bg-gray-200');
+              btn.classList.replace('hover:bg-indigo-700', 'hover:bg-gray-300');
+              knob.classList.replace('translate-x-6', 'translate-x-1');
+              icon.setAttribute('icon', 'solar:moon-linear');
+              icon.classList.replace('left-1.5', 'right-1.5');
+              icon.classList.replace('text-white', 'text-gray-400');
+          }
+      }
+    </script>
+  
 </body></html>
